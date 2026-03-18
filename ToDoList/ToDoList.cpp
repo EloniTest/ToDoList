@@ -78,8 +78,6 @@ int main()
 	using namespace std;
 	vector<Task> tasks;
 	loadTasks(tasks);
-	float t;
-	float testCommit;
 
 	while (true) {
 		showMenu();
