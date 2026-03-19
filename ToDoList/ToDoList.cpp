@@ -11,30 +11,29 @@ struct Task {
 };
 
 void showMenu() {
+	system("cls");
 	std::cout << "\n=== ToDo List ===\n";
 	std::cout << "1. Показать все задачи\n";
 	std::cout << "2. Добавить задачу\n";
 	std::cout << "3. Отметить задачу выполненной\n";
 	std::cout << "4. Удалить задачу\n";
-	std::cout << "5. Сохранить и выйти\n";
-	std::cout << "6. Загрузить список\n";
-	std::cout << "0. Выход без сохранения\n";
+	std::cout << "0. Выход\n";
 	std::cout << "Выберите действие: ";
 }
 void loadTasks(std::vector<Task>& tasks) {
 	using namespace std;
-	ifstream file("task.txt");
+	ifstream file("tasks.txt");
 	if (!file.is_open()) return;
 
 	string line;
 
-	while (getline(file, line))
+	while (getline(file, line)) {
 		if (line.empty()) continue;
-
-	Task t;
-	t.done = (line[0] == '1');
-	t.description = line.substr(2);
-	tasks.push_back(t);
+		Task t;
+		t.done = (line[0] == '1');
+		t.description = line.substr(2);
+		tasks.push_back(t);
+	}
 }
 void showAllTask(const std::vector<Task>& tasks) {
 	if (tasks.empty()) {
@@ -46,6 +45,7 @@ void showAllTask(const std::vector<Task>& tasks) {
 
 	for (size_t i = 0; i < tasks.size();i++)
 	{
+		std::cout << i + 1 << ". ";
 		if (tasks[i].done) {
 			std::cout << "[x]";
 		}
@@ -85,13 +85,10 @@ int main()
 		cin >> choice;
 		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // очистка буфера
 
-		if (choice == 0) {
-			cout << "Завершение программы";
-			break;
-		}
 
-		else if (choice == 1) {
+		if (choice == 1) {
 			showAllTask(tasks);
+			system("pause");
 		}
 		else if (choice == 2) {
 			cout << "Введите задачу: ";
@@ -101,6 +98,7 @@ int main()
 			{
 				tasks.push_back({ desc,false });
 			}
+			
 		}
 		else if (choice == 3) {
 			int index;
@@ -108,6 +106,7 @@ int main()
 			showAllTask(tasks);
 			cout << "Введите номер задачи: ";
 			cin >> index;
+			index--;
 			if (index < 0 || index >= tasks.size())
 			{
 				cout << "Ошибка, ты вышел за диапозон!";
@@ -120,6 +119,7 @@ int main()
 			int index;
 			cout << "Введите индекс для удаления: ";
 			cin >> index;
+			index--;
 			if (index < 0 || index >= tasks.size()) {
 				cout << "Ошибка, ты вышел за диапозон!";
 				continue;
@@ -128,12 +128,7 @@ int main()
 				tasks.erase(tasks.begin() + index);
 			}
 		}
-		else if (choice == 6) {
-			cout << "Загрузка списка";
-			loadTasks(tasks);
-			cout << "Загрузка завершена";
-		}
-		else if (choice == 5) {
+		else if (choice == 0) {
 			saveTask(tasks);
 			break;
 		}
