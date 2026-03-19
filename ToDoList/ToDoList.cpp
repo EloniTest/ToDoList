@@ -3,12 +3,14 @@
 #include <string>
 #include <fstream>      // для работы с файлами
 #include <limits>       // для cin.ignore()
-
+#include <ctime>
 
 struct Task {
 	std::string description;
 	bool done = false;
+	std::string date;
 };
+
 
 void showMenu() {
 	system("cls");
@@ -21,6 +23,13 @@ void showMenu() {
 	std::cout << "Выберите действие: ";
 }
 void loadTasks(std::vector<Task>& tasks) {
+	// локальное время
+	time_t now = time(0);
+	tm ltm;
+	localtime_s(&ltm, &now);
+	std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
+	// остальной код
+
 	using namespace std;
 	ifstream file("tasks.txt");
 	if (!file.is_open()) return;
@@ -31,7 +40,11 @@ void loadTasks(std::vector<Task>& tasks) {
 		if (line.empty()) continue;
 		Task t;
 		t.done = (line[0] == '1');
-		t.description = line.substr(2);
+		// поиск 2 разделителя
+		size_t first = line.find('|');
+		size_t second = line.find('|', first + 1);
+		t.description = line.substr(first + 1, second - first + 1);
+		t.date = line.substr(second + 1);
 		tasks.push_back(t);
 	}
 }
@@ -52,13 +65,19 @@ void showAllTask(const std::vector<Task>& tasks) {
 		else {
 			std::cout << "[ ]";
 		}
-		std::cout << "Задача: " << tasks[i].description << std::endl;
+		std::cout << "Задача: " << tasks[i].description << ". Время создания: " << tasks[i].date << std::endl;
 	}
 
 
 
 }
 void saveTask(const std::vector<Task>& tasks) {
+	// локальное время
+	time_t now = time(0);
+	tm ltm;
+	localtime_s(&ltm, &now);
+	std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
+	// остальной код
 	std::ofstream file("tasks.txt");
 	if (!file.is_open())
 	{
@@ -66,7 +85,7 @@ void saveTask(const std::vector<Task>& tasks) {
 	}
 
 	for (auto& t : tasks) {
-		file << (t.done ? "1" : "0") << "|" << t.description << std::endl;
+		file << (t.done ? "1" : "0") << "|" << t.description << t.date << std::endl;
 	}
 	file.close();
 	std::cout << "Список задач сохранен\n";
@@ -96,9 +115,15 @@ int main()
 			getline(cin, desc);
 			if (!desc.empty())
 			{
-				tasks.push_back({ desc,false });
+				// локальное время
+				time_t now = time(0);
+				tm ltm;
+				localtime_s(&ltm, &now);
+				std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
+				// остальной код
+				tasks.push_back({ desc, false, date });
 			}
-			
+			system("pause");
 		}
 		else if (choice == 3) {
 			int index;
@@ -114,6 +139,7 @@ int main()
 			}
 			tasks[index].done = true;
 			cout << "Список обновлен!";
+			system("pause");
 		}
 		else if (choice == 4) {
 			int index;
@@ -127,6 +153,7 @@ int main()
 			else {
 				tasks.erase(tasks.begin() + index);
 			}
+			system("pause");
 		}
 		else if (choice == 0) {
 			saveTask(tasks);
