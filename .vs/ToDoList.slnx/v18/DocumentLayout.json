@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "A:\\C\u002B\u002B\\ToDoList\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|solutionrelative:ToDoList\\TaskManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|A:\\C\u002B\u002B\\ToDoList\\ToDoList\\ToDoList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|solutionrelative:ToDoList\\ToDoList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|solutionrelative:ToDoList\\TaskManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{15284683-D4AC-4B4D-8388-DBAED19B2277}|ToDoList\\ToDoList.vcxproj|solutionrelative:ToDoList\\TaskManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,39 +46,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "TaskManager.h",
               "DocumentMoniker": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.h",
               "RelativeDocumentMoniker": "ToDoList\\TaskManager.h",
               "ToolTip": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.h",
               "RelativeToolTip": "ToDoList\\TaskManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-03-23T18:23:58.511Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TaskManager.cpp",
               "DocumentMoniker": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.cpp",
               "RelativeDocumentMoniker": "ToDoList\\TaskManager.cpp",
-              "ToolTip": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.cpp*",
-              "RelativeToolTip": "ToDoList\\TaskManager.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "ToolTip": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\TaskManager.cpp",
+              "RelativeToolTip": "ToDoList\\TaskManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-03-23T18:09:10.726Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ToDoList.cpp",
               "DocumentMoniker": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\ToDoList.cpp",
               "RelativeDocumentMoniker": "ToDoList\\ToDoList.cpp",
               "ToolTip": "A:\\C\u002B\u002B\\ToDoList\\ToDoList\\ToDoList.cpp",
               "RelativeToolTip": "ToDoList\\ToDoList.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAiwCkAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-03-23T18:07:35.647Z",
               "EditorCaption": ""

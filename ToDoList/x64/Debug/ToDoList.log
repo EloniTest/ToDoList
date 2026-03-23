@@ -1,2 +1,7 @@
 ﻿  TaskManager.cpp
-  ToDoList.vcxproj -> A:\C++\ToDoList\x64\Debug\ToDoList.exe
+  ToDoList.cpp
+A:\C++\ToDoList\ToDoList\ToDoList.cpp(30,42): warning C4003: недостаточно аргументов для вызова макроса, подобного функции, "max"
+A:\C++\ToDoList\ToDoList\ToDoList.cpp(30,42): error C2589: (: недопустимая лексема справа от "::"
+A:\C++\ToDoList\ToDoList\ToDoList.cpp(30,42): error C2059: синтаксическая ошибка: )
+A:\C++\ToDoList\ToDoList\ToDoList.cpp(30,53): error C2059: синтаксическая ошибка: )
+  Создание кода...

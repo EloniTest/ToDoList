@@ -27,7 +27,7 @@ int main()
 
 		int choice;
 		cin >> choice;
-		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // очистка буфера
+		cin.ignore(); // очистка буфера
 
 
 		if (choice == 1) {
