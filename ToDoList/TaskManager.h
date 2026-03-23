@@ -4,7 +4,7 @@
 #include <string>
 
 void showMenu();
-std::string GetCurrentDate();
+std::string getCurrentDate();
 
 void loadTasks(std::vector<Task>& tasks);
 void showAllTask(const std::vector<Task>& tasks);

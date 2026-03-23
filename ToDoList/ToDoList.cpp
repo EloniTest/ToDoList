@@ -4,14 +4,19 @@
 #include <fstream>      // для работы с файлами
 #include <limits>       // для cin.ignore()
 #include <ctime>
+#include <windows.h>
 #include "Task.h"
 #include "TaskManager.h"
+
 
 
 using namespace std;
 
 int main()
 {
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
+	
 	setlocale(LC_ALL, "RU");
 
 	vector<Task> tasks;
@@ -34,8 +39,8 @@ int main()
 			string desc;
 			getline(cin, desc);
 			if (!desc.empty()) {
-				tasks.push_back({ desc, false, GetCurrentDate()});
-				cout << "Задача добавлена (" << GetCurrentDate() << ")\n";
+				tasks.push_back({ desc, false, getCurrentDate()});
+				cout << "Задача добавлена (" << getCurrentDate() << ")\n";
 			}
 			system("pause");
 		}
