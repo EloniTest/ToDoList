@@ -11,6 +11,14 @@ struct Task {
 	std::string date;
 };
 
+std::string getCurrentDate() {
+	time_t now = time(nullptr);
+	tm ltm;
+	localtime_s(&ltm, &now);
+	std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
+	return date;
+}
+
 
 void showMenu() {
 	system("cls");
@@ -23,13 +31,6 @@ void showMenu() {
 	std::cout << "Выберите действие: ";
 }
 void loadTasks(std::vector<Task>& tasks) {
-	// локальное время
-	time_t now = time(0);
-	tm ltm;
-	localtime_s(&ltm, &now);
-	std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
-	// остальной код
-
 	using namespace std;
 	ifstream file("tasks.txt");
 	if (!file.is_open()) return;
@@ -47,6 +48,7 @@ void loadTasks(std::vector<Task>& tasks) {
 		t.date = line.substr(second + 1);
 		tasks.push_back(t);
 	}
+	file.close();
 }
 void showAllTask(const std::vector<Task>& tasks) {
 	if (tasks.empty()) {
@@ -72,16 +74,10 @@ void showAllTask(const std::vector<Task>& tasks) {
 
 }
 void saveTask(const std::vector<Task>& tasks) {
-	// локальное время
-	time_t now = time(0);
-	tm ltm;
-	localtime_s(&ltm, &now);
-	std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
-	// остальной код
 	std::ofstream file("tasks.txt");
 	if (!file.is_open())
 	{
-		std::cout << "Ошибка сохранения!\n";
+		std::cout << "Ошибка: не удалось открыть файл для записи!\n";
 	}
 
 	for (auto& t : tasks) {
@@ -113,15 +109,9 @@ int main()
 			cout << "Введите задачу: ";
 			string desc;
 			getline(cin, desc);
-			if (!desc.empty())
-			{
-				// локальное время
-				time_t now = time(0);
-				tm ltm;
-				localtime_s(&ltm, &now);
-				std::string date = std::to_string(ltm.tm_mday) + "." + std::to_string(1 + ltm.tm_mon) + "." + std::to_string(1900 + ltm.tm_year);
-				// остальной код
-				tasks.push_back({ desc, false, date });
+			if (!desc.empty()) {
+				tasks.push_back({ desc, false, getCurrentDate()});
+				cout << "Задача добавлена (" << getCurrentDate() << ")\n";
 			}
 			system("pause");
 		}
